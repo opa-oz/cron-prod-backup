@@ -1,5 +1,6 @@
 import tarfile
 import os.path
+import time
 from pathlib import Path
 
 targets = [
@@ -23,9 +24,10 @@ def make_tarfile(output_filename: Path, source_dir: Path):
 
 def main():
     for target in targets:
+        start = time.time()
         print(f"Start {target}")
         make_tarfile(dest / f"{target}.tar.gz", source / target)
-        print(f"Finish {target}")
+        print(f"Finish {target}: {time.time() - start}")
 
 
 if __name__ == "__main__":

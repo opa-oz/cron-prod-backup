@@ -31,7 +31,7 @@ metadata:
   name: cron-prod-backup
   namespace: cron-jobs
 spec:
-  schedule: "0 */12 * * *"
+  schedule: "0 0 * * *"
   jobTemplate:
     spec:
       template:
@@ -41,7 +41,7 @@ spec:
             kubernetes.io/arch: amd64
           containers:
             - name: cron-prod-backup
-              image: cr.yandex/crpoghn06qpit3061gka/cron-prod-backup:0.1.0-amd64
+              image: cr.yandex/crpoghn06qpit3061gka/cron-prod-backup:0.1.1-amd64
               imagePullPolicy: IfNotPresent
               volumeMounts:
                 - mountPath: /source
