@@ -1,0 +1,20 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: cron-prod-backup
+  namespace: cron-jobs
+spec:
+  schedule: "0 */12 * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          nodeSelector:
+            kubernetes.io/arch: amd64
+          containers:
+            - name: cron-prod-backup
+              image: cr.yandex/crpoghn06qpit3061gka/cron-prod-backup:0.0.1-amd64
+              imagePullPolicy: IfNotPresent
+          restartPolicy: OnFailure
+          imagePullSecrets:
+            - name: yandex
