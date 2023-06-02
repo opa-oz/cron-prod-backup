@@ -1,9 +1,9 @@
 package:
   name: cron-prod-backup
-  version: 0.0.1
+  version: 0.1.0
   default: true
   files:
-    - name: .github/workflows/build-and-deploy-cronjob.yml
+    - name: ../.github/workflows/build-and-deploy-cronjob.yml
       templates:
         - "TAG: ${{ env.REGISTRY_IMAGE }}:__VERSION__"
     - name: manifests/cron-job.yaml
