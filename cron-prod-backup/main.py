@@ -12,6 +12,7 @@ targets = [
     "n8n",
     "pihole",
     "jellyfin",
+    "kuma",
 ]
 
 source = Path("/source")
