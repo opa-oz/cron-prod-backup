@@ -1,6 +1,6 @@
 package:
   name: cron-prod-backup
-  version: 0.1.1
+  version: 0.1.2
   default: true
   files:
     - name: ../.github/workflows/build-and-deploy-cronjob.yml

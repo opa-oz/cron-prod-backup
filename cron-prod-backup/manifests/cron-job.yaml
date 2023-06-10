@@ -41,8 +41,11 @@ spec:
             kubernetes.io/arch: amd64
           containers:
             - name: cron-prod-backup
-              image: cr.yandex/crpoghn06qpit3061gka/cron-prod-backup:0.1.1-amd64
+              image: cr.yandex/crpoghn06qpit3061gka/cron-prod-backup:0.1.2-amd64
               imagePullPolicy: IfNotPresent
+              env:
+                - name: PING_URL
+                  value: "http://192.168.0.30/microservices/pingwin/ping?service=cron&path=prod-backup"
               volumeMounts:
                 - mountPath: /source
                   name: data

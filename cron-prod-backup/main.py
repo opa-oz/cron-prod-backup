@@ -1,6 +1,7 @@
 import tarfile
 import os.path
 import time
+import requests
 from pathlib import Path
 
 targets = [
@@ -28,6 +29,11 @@ def main():
         print(f"Start {target}")
         make_tarfile(dest / f"{target}.tar.gz", source / target)
         print(f"Finish {target}: {time.time() - start}")
+
+        ping_url = os.environ.get("PING_URL")
+
+        if ping_url is not None:
+            requests.get(ping_url)
 
 
 if __name__ == "__main__":
