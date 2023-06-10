@@ -7,7 +7,7 @@ on:
 
 env:
   REGISTRY_IMAGE: cr.yandex/crpoghn06qpit3061gka/cron-prod-backup
-  TAG: ${{ env.REGISTRY_IMAGE }}:0.1.1
+  TAG: ${{ env.REGISTRY_IMAGE }}:0.1.2
 
 jobs:
   build:
