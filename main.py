@@ -7,10 +7,6 @@ from pathlib import Path
 targets = [
     "calibre",
     "gitea",
-    "gitea-act",
-    "drone",
-    "n8n",
-    "pihole",
     "jellyfin",
     "kuma",
 ]
@@ -34,7 +30,10 @@ def main():
         ping_url = os.environ.get("PING_URL")
 
         if ping_url is not None:
-            requests.get(ping_url)
+            try:
+                requests.get(ping_url)
+            except:
+                pass
 
 
 if __name__ == "__main__":
